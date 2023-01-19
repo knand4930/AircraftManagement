@@ -1,0 +1,130 @@
+
+{% extends 'adminmaster.html' %}
+
+{% block content %}
+
+
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Add New Customer<h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/">Home</a></li>
+              <li class="breadcrumb-item active">{{ msg }}</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-6">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">{{ msg }}</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <center><h4 style="color:red;"><b>{{ msg }}</b></h4></center>
+              <form role="form" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="card-body">
+
+
+                  <div class="form-group">
+                    <label>Choose Aircraft</label>
+
+                    <select name="aircraft"  class="form-control">
+                      {% for i in aircraft %}
+                      <option value="{{ i.id }}">{{ i.serial }} | {{ i.manufacture }} | {{ i.aircraft_name }}</option>
+                      {% endfor %}
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Choose Flight</label>
+
+                    <select name="flight"  class="form-control">
+                      {% for i in flight %}
+                      <option value="{{ i.id }}">{{ i.name }}</option>
+                      {% endfor %}
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Arrival Airport</label>
+
+                    <select name="arrival_airport"  class="form-control">
+                      {% for i in airport %}
+                      <option value="{{ i.id }}">{{ i.icao_code }} | {{ i.name }}</option>
+                      {% endfor %}
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Departure Airport</label>
+
+                    <select name="departure_airport"  class="form-control">
+                      {% for i in airport %}
+                      <option value="{{ i.id }}">{{ i.icao_code }} | {{ i.name }}</option>
+                      {% endfor %}
+                    </select>
+                  </div>
+
+
+                  <div class="form-group">
+                    <label>Arrival Flight Date</label>
+                    <input type="date" name="arrival_flight_date" value="{{ var.arrival_flight_date }}" class="form-control" placeholder="Enter Arrival Flight Date">
+                  </div>
+
+                   <div class="form-group">
+                    <label>Arrival Flight Time</label>
+                    <input type="time" name="arrival_flight_time" value="{{ var.arrival_flight_time }}" class="form-control" placeholder="Enter Arrival Flight Time">
+                  </div>
+
+                  <div class="form-group">
+                    <label>Departure Flight Date</label>
+                    <input type="date" name="departure_flight_date" value="{{ var.departure_flight_date }}" class="form-control" placeholder="Enter Departure Flight Date">
+                  </div>
+
+                   <div class="form-group">
+                    <label>Departure Flight Time</label>
+                    <input type="time" name="departure_flight_time" value="{{ var.departure_flight_time }}" class="form-control" placeholder="Enter Departure Flight Time">
+                  </div>
+
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
+            </div>
+            <!-- /.card -->
+
+
+          </div>
+
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+
+{% endblock %}

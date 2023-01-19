@@ -1,0 +1,357 @@
+{
+	"info": {
+		"_postman_id": "5568c098-1a4d-49de-974c-517086950644",
+		"name": "Aircraft Management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9464881"
+	},
+	"item": [
+		{
+			"name": "aircraft get and post api",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "manufacture",
+							"value": "kumar",
+							"type": "text"
+						},
+						{
+							"key": "aircraft_name",
+							"value": "nand",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/aircraft/list/view",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"aircraft",
+						"list",
+						"view"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Airport API get and post",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "icao_code",
+							"value": "DU",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Delhi",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/airport/list/view",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"airport",
+						"list",
+						"view"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Flight API get and post",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "AU-Ind",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/flight/list/view",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"flight",
+						"list",
+						"view"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Management get and post api",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "aircraft",
+							"value": "1",
+							"description": "pass aircraft id ",
+							"type": "text"
+						},
+						{
+							"key": "flight",
+							"value": "1",
+							"description": "pass flight id",
+							"type": "text"
+						},
+						{
+							"key": "arrival_airport",
+							"value": "1",
+							"description": "pass airport id",
+							"type": "text"
+						},
+						{
+							"key": "departure_airport",
+							"value": "1",
+							"description": "pass airport id",
+							"type": "text"
+						},
+						{
+							"key": "arrival_flight_date",
+							"value": "2023-01-19",
+							"description": "please input correct date format",
+							"type": "text"
+						},
+						{
+							"key": "arrival_flight_time",
+							"value": "12:00:00",
+							"description": "please input correct time format",
+							"type": "text"
+						},
+						{
+							"key": "departure_flight_date",
+							"value": "2023-01-19",
+							"description": "please input correct date format",
+							"type": "text"
+						},
+						{
+							"key": "departure_flight_time",
+							"value": "15:00:00",
+							"description": "please input correct time format",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/management/list/view?",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"management",
+						"list",
+						"view"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Aircraft Delete and Update API",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "pk",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/aircraft/delete/view/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"aircraft",
+						"delete",
+						"view",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Airport update and delete api",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/airport/delete/view/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"airport",
+						"delete",
+						"view",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Flight update and Delete api",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/flight/delete/view/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"flight",
+						"delete",
+						"view",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Management udpate and delete api",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/management/delete/view/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"management",
+						"delete",
+						"view",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Filter for details it is work on browser to check carefully",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/search/fields",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"search",
+						"fields"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

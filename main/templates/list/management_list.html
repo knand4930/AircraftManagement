@@ -1,0 +1,171 @@
+{% extends 'adminmaster.html' %}
+
+{% block content %}
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>{{ msg }}</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="{% url 'adminpanel' %}">Dashboard</a></li>
+              <li class="breadcrumb-item active">{{ msg }}</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+
+              <div class="card-header">
+              </div>
+            <form action="{% url 'management_arrival' %}" method="post" >
+              {% csrf_token %}
+              <div class="card-body pad table-responsive">
+                <table class="table table-bordered text-center">
+                  <tbody>
+                  <tr>
+
+                    <td>
+                      <label>Arrival Airport</label>
+                      <input type="text" class="btn btn-block btn-warning" name="arrival_airport" placeholder="Arrival Airport">
+                    </td>
+
+                     <td>
+                       <input type="submit" class="btn btn-warning" value="Filter" />
+                    </td>
+                  </tr>
+                </tbody></table>
+              </div>
+              <!-- /.card -->
+              </form>
+
+            <form action="{% url 'management_departure' %}" method="post" >
+              {% csrf_token %}
+              <div class="card-body pad table-responsive">
+                <table class="table table-bordered text-center">
+                  <tbody>
+                  <tr>
+
+                    <td>
+                      <label>Departure Airport </label>
+                      <input type="text" class="btn btn-block btn-warning" name="departure_airport" placeholder="Departure Airport">
+                    </td>
+
+                     <td>
+                       <input type="submit" class="btn btn-warning" value="Filter" />
+                    </td>
+                  </tr>
+                </tbody></table>
+              </div>
+              <!-- /.card -->
+              </form>
+
+
+            <form action="" method="post" >
+              {% csrf_token %}
+              <div class="card-body pad table-responsive">
+                <table class="table table-bordered text-center">
+                  <tbody>
+                  <tr>
+
+                    <td>
+                      <label>Departure Start Time</label>
+                      <input type="time" class="btn btn-block btn-warning" name="departure_flight_time_start" placeholder="Departure Airport">
+                    </td>
+
+                    <td>
+                      <label>Departure End Time</label>
+                      <input type="time" class="btn btn-block btn-warning" name="departure_flight_time_end" placeholder="Departure Airport">
+
+                    </td>
+
+
+                     <td>
+                       <input type="submit" class="btn btn-warning" value="Filter" />
+                    </td>
+                  </tr>
+                </tbody></table>
+              </div>
+              <!-- /.card -->
+              </form>
+
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">{{ msg }}</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                  <th>Aircraft Name</th>
+                  <th>Flight</th>
+                  <th>Arrival Airport</th>
+                  <th>Departure Airport</th>
+                  <th>Arrival Flight</th>
+                  <th>Departure Flight</th>
+                  <th>Action</th>
+
+                </tr>
+                </thead>
+                <tbody>
+
+                {% for i in value%}
+                <tr>
+                  <td>{{ i.aircraft.aircraft_name }}</td>
+                  <td>{{ i.flight.name }}</td>
+                  <td>{{ i.arrival_airport.icao_code }} | {{ i.arrival_airport.name }}</td>
+                  <td>{{ i.departure_airport.icao_code }} | {{ i.arrival_airport.name }}</td>
+                  <td>{{ i.arrival_flight_date }} | {{ i.arrival_flight_time }}</td>
+                  <td>{{ i.departure_flight_date }} | {{ i.departure_flight_time }}</td>
+
+                  <td>
+                    <a href="{% url 'edit_management' i.id %}"> <i class="material-icons">Edit</i></a> &nbsp;  &nbsp;   &nbsp;   &nbsp;  &nbsp;
+                    <a href="{% url 'del_management' i.id %}"> <i class="material-icons">Delete</i></a>
+                  </td>
+                </tr>
+                {% endfor %}
+
+                </tbody>
+                <tfoot>
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+
+          <!-- /.card -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
+
+
+
+
+
+
+     <a id="back-to-top" href="#" class="btn btn-primary back-to-top" role="button" aria-label="Scroll to top">
+      <i class="fas fa-chevron-up"></i>
+    </a>
+  </div>
+  <!-- /.content-wrapper -->
+
+
+
+{% endblock %}
